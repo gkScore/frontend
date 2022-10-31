@@ -6,6 +6,7 @@ import detectEthereumProvider from "@metamask/detect-provider";
 import Web3 from "web3";
 import { ethers } from "ethers";
 import Link from "next/link";
+import Top from "./Top";
 
 const Home: NextPage = () => {
   const [account, setAccount] = useState<string>("");
@@ -29,53 +30,16 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex justify-center">
+      <main>
         <div>
-          <h1
-            className="{`
-        mt-24 mb-24 text-center
-        font-bold text-5xl tracking-tight
-        bg-gradient-to-r from-green-500 via-blue-500 to-pink-500
-        bg-clip-text text-transparent 
-    `}"
-          >
-            zkScore
-          </h1>
-          {account ? (
-            <div className="">
-              <div className="text-white bg-violet-700 rounded-full p-8 w-[300px] h-[300px] text-center mx-auto">
-                <p className="text-8xl pt-10">45</p>
-                <p className="text-3xl pt-5">My Score</p>
-              </div>
-              <div className="pt-36 grid grid-cols-3 gap-10 mx-auto text-white place-content-around">
-                <Link href="/issue">
-                  <button className="bg-violet-800 py-5 px-10 rounded-3xl font-bold">
-                    Issue
-                  </button>
-                </Link>
-                <Link href="/own">
-                  <button className="bg-violet-800 py-5 px-10 rounded-3xl  font-bold  ">
-                    Own
-                  </button>
-                </Link>
-                <Link href="/verification">
-                  <button className="bg-violet-800 py-5 px-10 rounded-3xl  font-bold  ">
-                    Verification
-                  </button>
-                </Link>
-              </div>
-            </div>
+          <h1 className="zkscore">zkScore</h1>
+          {account !== "" ? (
+            <Top />
           ) : (
-            <div>
-              <button
-                className={`
-          my-8
-          bg-violet-700 hover:bg-blue-400
-          p-5 rounded-full font-bold transition duration-300
-          text-white ml-9
-          `}
-                onClick={connectWallet}
-              >
+            // <Issue />
+            <div className="cube">
+              <p className="text-black text-6xl">zkScore</p>
+              <button className="btn-normal" onClick={connectWallet}>
                 Connect Wallet
               </button>
             </div>
