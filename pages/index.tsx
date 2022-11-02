@@ -32,14 +32,13 @@ const Home: NextPage = () => {
 
       <main>
         <div>
-          <h1 className="zkscore">zkScore</h1>
           {account !== "" ? (
             <Top />
           ) : (
             // <Issue />
-            <div className="cube">
+            <div className={`cube mt-[250px]`}>
               <p className="text-black text-6xl">zkScore</p>
-              <button className="btn-normal" onClick={connectWallet}>
+              <button className={"btn-normal"} onClick={connectWallet}>
                 Connect Wallet
               </button>
             </div>

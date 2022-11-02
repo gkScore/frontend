@@ -1,13 +1,16 @@
+import { LeftSideBar } from "./LeftSideBar";
+
 const Verification = () => {
   return (
     <div>
       <span>
         <p>Enter Wallet Address</p>
-        <p>ox...123</p>
+        <input type="text"></input>
         <p>Enter Score</p>
-        <p>50</p>
+        <input type="text"></input>
       </span>
       <button>Verification</button>
+      <LeftSideBar />
     </div>
   );
 };
