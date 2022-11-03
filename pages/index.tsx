@@ -7,6 +7,7 @@ import Web3 from "web3";
 import { ethers } from "ethers";
 import Link from "next/link";
 import Top from "./Top";
+
 import connectWalletImage from "../public/index/connectWalletButton.svg";
 import sub from "../public/index/Subtract.svg";
 
@@ -36,21 +37,18 @@ const Home: NextPage = () => {
           {account !== "" ? (
             <Top />
           ) : (
-            // TODO 画像を重ねる
+            // TODO top,leftのpxハードコード修正？画像を小さくしたい。
             <div className="h-screen w-screen flex justify-center items-center relative">
-              <Image
-                src={sub}
-                alt="connect"
-                width={500}
-                height={500}
-                className="relative"
-              />
-              <Image
-                src={connectWalletImage}
-                alt="connect"
-                onClick={connectWallet}
-                className="absolute z-50 left-72"
-              />
+              <div className="absolute w-fit h-fit top-[100px] left-[330px] z-[0]">
+                <Image src={sub} alt="connect" />
+              </div>
+              <div className="absolute h-fit top-[542px] left-[514px] z-[10] w-fit">
+                <Image
+                  src={connectWalletImage}
+                  alt="connect"
+                  onClick={connectWallet}
+                />
+              </div>
             </div>
           )}
         </div>
