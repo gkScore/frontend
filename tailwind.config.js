@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "regal-blue": "#243c5a",
+        bg_col: "#110912",
       },
       backgroundImage: {
         default_image: "url(/public/bgimage.svg)",

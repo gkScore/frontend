@@ -1,4 +1,4 @@
-import { LeftSideBar } from "./LeftSideBar";
+import LeftSideBar from "./LeftSideBar";
 
 const Verification = () => {
   return (

@@ -1,25 +1,24 @@
-import { LeftSideBar } from "./LeftSideBar";
+import LeftSideBar from "./LeftSideBar";
+import ideState from "../public/top/Group10.svg";
+import Image from "next/image";
 
 const Own = () => {
+  // TODO スタイル整形
   return (
-    <div className="text-white flex flex-col">
-      <div>
-        <div className="cube">
-          <p>My Score</p>
-          <p>45</p>
+    <div className="mt-[100px]">
+      <div className="bg-bg_col w-[500px] h-[500px] flex m-auto rounded-[12px] opacity-80 justify-center items-center">
+        <div className="flex flex-col  text-white items-end">
+          <p className="text-3xl pt-5">My Score</p>
+          <p className="text-8xl pt-10">45</p>
         </div>
-        <div className="flex">
-          <span>Total Score</span>
-          <span>450</span>
+        <div className="text-white">
+          <p>Total Score</p>
+          <p>450</p>
+          <p>Received Score</p>
+          <p>10</p>
         </div>
-        <div className="flex">
-          <span>Trade Counts</span>
-          <span>10</span>
-        </div>
-        <div className="flex flex-col">
-          <span>Identity State</span>
-          <span>0x93839e0a9a9</span>
-          <span>0x48342d32re3</span>
+        <div>
+          <Image src={ideState} alt="state" />
         </div>
         <LeftSideBar />
       </div>

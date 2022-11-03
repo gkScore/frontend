@@ -7,6 +7,8 @@ import Web3 from "web3";
 import { ethers } from "ethers";
 import Link from "next/link";
 import Top from "./Top";
+import connectWalletImage from "../public/index/connectWalletButton.svg";
+import sub from "../public/index/Subtract.svg";
 
 const Home: NextPage = () => {
   const [account, setAccount] = useState<string>("");
@@ -15,7 +17,6 @@ const Home: NextPage = () => {
       window.ethereum
         .request({ method: "eth_requestAccounts" })
         .then((accounts) => {
-          // Return the account of the wallet
           setAccount(accounts[0]);
         });
     } else {
@@ -35,12 +36,21 @@ const Home: NextPage = () => {
           {account !== "" ? (
             <Top />
           ) : (
-            // <Issue />
-            <div className={`cube mt-[250px]`}>
-              <p className="text-black text-6xl">zkScore</p>
-              <button className={"btn-normal"} onClick={connectWallet}>
-                Connect Wallet
-              </button>
+            // TODO 画像を重ねる
+            <div className="h-screen w-screen flex justify-center items-center relative">
+              <Image
+                src={sub}
+                alt="connect"
+                width={500}
+                height={500}
+                className="relative"
+              />
+              <Image
+                src={connectWalletImage}
+                alt="connect"
+                onClick={connectWallet}
+                className="absolute z-50 left-72"
+              />
             </div>
           )}
         </div>

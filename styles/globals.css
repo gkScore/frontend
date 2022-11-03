@@ -23,6 +23,6 @@ html {
     @apply bg-violet-800 py-5 px-10 rounded-3xl font-bold;
   }
   .cube {
-    @apply text-white bg-[#5255A3] rounded-full p-8 w-[300px] h-[300px] text-center mx-auto;
+    @apply text-white bg-white rounded-full p-8 w-[300px] h-[300px] text-center mx-auto;
   }
 }
