@@ -14,18 +14,18 @@ const LeftSideBar = ({ nowPage }) => {
     //TODO スタイル整形
     <div>
       <div className="fixed top-[100px] left-10 px-auto">
-        <div className="flex justify-center">
-          <Image src={zkscore} alt="icon" />
-        </div>
-        <div className="flex flex-col items-start pt-20">
-          <Link href="/Top">
-            {nowPage === "home" ? (
-              <Image src={homeActive} alt="home" />
-            ) : (
-              <Image src={home} alt="home" />
-            )}
-          </Link>
-          <div className="pt-3">
+        <Image src={zkscore} alt="icon" />
+        <div className="flex flex-col items-start pt-20 ">
+          <div className="pl-3 hover:bg-cyan-900 w-60 rounded-lg cursor-pointer	">
+            <Link href="/Top">
+              {nowPage === "home" ? (
+                <Image src={homeActive} alt="home" />
+              ) : (
+                <Image src={home} alt="home" />
+              )}
+            </Link>
+          </div>
+          <div className="pl-3 pt-3 hover:bg-cyan-900 w-60 rounded-lg cursor-pointer	">
             <Link href="/Own">
               {nowPage === "own" ? (
                 <Image src={ownActive} alt="own" />
@@ -34,7 +34,7 @@ const LeftSideBar = ({ nowPage }) => {
               )}
             </Link>
           </div>
-          <div className="pt-3">
+          <div className="pl-3  pt-3 hover:bg-cyan-900 w-60 rounded-lg cursor-pointer	">
             <Link href="/Issue">
               {nowPage === "issue" ? (
                 <Image src={issueActive} alt="issue" />
@@ -43,7 +43,7 @@ const LeftSideBar = ({ nowPage }) => {
               )}
             </Link>
           </div>
-          <div className="pt-3">
+          <div className="pl-3 pt-3 hover:bg-cyan-900 w-60 rounded-lg cursor-pointer	">
             <Link href="/Verification">
               {nowPage === "verification" ? (
                 <Image src={verificationActive} alt="verification" />
