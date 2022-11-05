@@ -39,7 +39,7 @@ const Issue = () => {
           <span onClick={issueClick}>
             <Image src={issueButton} alt="button" />
           </span>
-          <LeftSideBar />
+          <LeftSideBar nowPage="issue" />
         </div>
       </div>
     </div>

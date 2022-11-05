@@ -8,3 +8,13 @@
   min-height: 100vh;
   min-width: 100vw;
 }
+.var {
+  background-image: url("../public/images/varbgImage.svg");
+  min-height: 100vh;
+  min-width: 100vw;
+}
+.own {
+  background-image: url("../public/images/ownbg.svg");
+  min-height: 100vh;
+  min-width: 100vw;
+}

@@ -1,47 +1,60 @@
 import Link from "next/link";
 import Image from "next/image";
-import { AiOutlineHome } from "react-icons/ai";
-import { CgProfile } from "react-icons/cg";
-import { AiOutlineFileSearch } from "react-icons/ai";
-import { AiOutlineIdcard } from "react-icons/ai";
-import icon from "../public/leftSideBar/Union@2x.svg";
-
-const LeftSideBar = () => {
+import zkscore from "../public/sideButton/zkscore.svg";
+import home from "../public/sideButton/home.svg";
+import homeActive from "../public/sideButton/homeActive.svg";
+import own from "../public/sideButton/own.svg";
+import ownActive from "../public/sideButton/ownActive.svg";
+import issue from "../public/sideButton/issue.svg";
+import issueActive from "../public/sideButton/issueActive.svg";
+import verification from "../public/sideButton/verification.svg";
+import verificationActive from "../public/sideButton/verificationActive.svg";
+const LeftSideBar = ({ nowPage }) => {
   return (
     //TODO スタイル整形
-    <body className="bg-blue-600">
-      <div className="sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-[300px] overflow-y-auto text-center">
-        <div className="p-2.5 mt-1 flex items-center">
-          <Image src={icon} alt="icon" />
+    <div>
+      <div className="fixed top-[100px] left-10 px-auto">
+        <div className="flex justify-center">
+          <Image src={zkscore} alt="icon" />
         </div>
-        <div className="text-left text-sm mt-2 w-4/5 mx-auto text-gray-200 font-bold">
+        <div className="flex flex-col items-start pt-20">
           <Link href="/Top">
-            <span className="flex text-white items-center p-2 hover:bg-blue-600 rounded-md mt-1">
-              <AiOutlineHome />
-              <h1 className="pl-3">HOME</h1>
-            </span>
+            {nowPage === "home" ? (
+              <Image src={homeActive} alt="home" />
+            ) : (
+              <Image src={home} alt="home" />
+            )}
           </Link>
-          <Link href="/Own">
-            <span className="flex text-white items-center p-2 hover:bg-blue-600 rounded-md mt-1">
-              <CgProfile />
-              <h1 className="pl-3">Own</h1>
-            </span>
-          </Link>
-          <Link href="/Issue">
-            <span className="flex text-white items-center p-2 hover:bg-blue-600 rounded-md mt-1">
-              <AiOutlineFileSearch />
-              <h1 className="pl-3">Issue</h1>
-            </span>
-          </Link>
-          <Link href="/Verification">
-            <span className="flex text-white items-center p-2 hover:bg-blue-600 rounded-md mt-1">
-              <AiOutlineIdcard />
-              <h1 className="pl-3">Verification</h1>
-            </span>
-          </Link>
+          <div className="pt-3">
+            <Link href="/Own">
+              {nowPage === "own" ? (
+                <Image src={ownActive} alt="own" />
+              ) : (
+                <Image src={own} alt="own" />
+              )}
+            </Link>
+          </div>
+          <div className="pt-3">
+            <Link href="/Issue">
+              {nowPage === "issue" ? (
+                <Image src={issueActive} alt="issue" />
+              ) : (
+                <Image src={issue} alt="issue" />
+              )}
+            </Link>
+          </div>
+          <div className="pt-3">
+            <Link href="/Verification">
+              {nowPage === "verification" ? (
+                <Image src={verificationActive} alt="verification" />
+              ) : (
+                <Image src={verification} alt="verification" />
+              )}
+            </Link>
+          </div>
         </div>
       </div>
-    </body>
+    </div>
   );
 };
 

@@ -13,7 +13,7 @@ const SbtIssue = () => {
     // TODO:完了後にモーダルを表示する
     // TODO:上3つの処理が終わったら下のsetTimeOutの処理削除
 
-    setTimeout(() => setProgress(true), 3000);
+    setTimeout(() => setProgress(true), 1000);
   };
   return (
     <div className={styles.bg}>
