@@ -1,0 +1,10 @@
+.bg {
+  background-image: url("../public/images/bgimage.svg");
+  min-height: 100vh;
+  min-width: 100vw;
+}
+.home {
+  background-image: url("../public/images/bg_image_home.svg");
+  min-height: 100vh;
+  min-width: 100vw;
+}

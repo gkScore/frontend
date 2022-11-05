@@ -9,9 +9,6 @@ module.exports = {
       colors: {
         bg_col: "#110912",
       },
-      backgroundImage: {
-        default_image: "url(/public/bgimage.svg)",
-      },
     },
   },
   plugins: [],

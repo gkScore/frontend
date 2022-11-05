@@ -6,13 +6,15 @@ import detectEthereumProvider from "@metamask/detect-provider";
 import Web3 from "web3";
 import { ethers } from "ethers";
 import Link from "next/link";
-import Top from "./Top";
-
+import topLogoImage from "../public/top.svg";
 import connectWalletImage from "../public/index/connectWalletButton.svg";
 import sub from "../public/index/Subtract.svg";
+import SbtIssue from "./SbtIssue";
+import style from "../styles/bgimage.module.css";
 
 const Home: NextPage = () => {
   const [account, setAccount] = useState<string>("");
+
   const connectWallet = () => {
     if (typeof globalThis.window?.ethereum !== "undefined") {
       window.ethereum
@@ -32,23 +34,21 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <main className={style.bg}>
         <div>
           {account !== "" ? (
-            <Top />
+            // TODO accountの値を<SbtIssue />引数に入れる？→Reduxになるかも。。
+            <SbtIssue />
           ) : (
-            // TODO top,leftのpxハードコード修正？画像を小さくしたい。
-            <div className="h-screen w-screen flex justify-center items-center relative">
-              <div className="absolute w-fit h-fit top-[100px] left-[330px] z-[0]">
-                <Image src={sub} alt="connect" />
-              </div>
-              <div className="absolute h-fit top-[542px] left-[514px] z-[10] w-fit">
-                <Image
-                  src={connectWalletImage}
-                  alt="connect"
-                  onClick={connectWallet}
-                />
-              </div>
+            <div className="h-screen w-screen flex justify-center items-center">
+              <Image
+                src={topLogoImage}
+                alt="logo"
+                width={670}
+                height={670}
+                onClick={connectWallet}
+                className="cursor-pointer"
+              />
             </div>
           )}
         </div>
