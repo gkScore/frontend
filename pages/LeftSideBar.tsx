@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import zkscore from "../public/sideButton/zkscore.svg";
 import home from "../public/sideButton/home.svg";
 import homeActive from "../public/sideButton/homeActive.svg";
 import own from "../public/sideButton/own.svg";
@@ -14,9 +13,8 @@ const LeftSideBar = ({ nowPage }) => {
     //TODO スタイル整形
     <div>
       <div className="fixed top-[100px] left-10 px-auto">
-        <Image src={zkscore} alt="icon" />
-        <div className="flex flex-col items-start pt-20 ">
-          <div className="pl-3 hover:bg-cyan-900 w-60 rounded-lg cursor-pointer	">
+        <div className="flex flex-col items-start pt-[200px] ">
+          <div className="pl-3 w-50 rounded-lg cursor-pointer">
             <Link href="/Top">
               {nowPage === "home" ? (
                 <Image src={homeActive} alt="home" />
@@ -25,7 +23,7 @@ const LeftSideBar = ({ nowPage }) => {
               )}
             </Link>
           </div>
-          <div className="pl-3 pt-3 hover:bg-cyan-900 w-60 rounded-lg cursor-pointer	">
+          <div className="pl-3 pt-3 w-50 rounded-lg cursor-pointer">
             <Link href="/Own">
               {nowPage === "own" ? (
                 <Image src={ownActive} alt="own" />
@@ -34,7 +32,7 @@ const LeftSideBar = ({ nowPage }) => {
               )}
             </Link>
           </div>
-          <div className="pl-3  pt-3 hover:bg-cyan-900 w-60 rounded-lg cursor-pointer	">
+          <div className="pl-3 pt-3 w-50 rounded-lg cursor-pointer">
             <Link href="/Issue">
               {nowPage === "issue" ? (
                 <Image src={issueActive} alt="issue" />
@@ -43,7 +41,7 @@ const LeftSideBar = ({ nowPage }) => {
               )}
             </Link>
           </div>
-          <div className="pl-3 pt-3 hover:bg-cyan-900 w-60 rounded-lg cursor-pointer	">
+          <div className="pl-3 pt-3 w-50 rounded-lg cursor-pointer">
             <Link href="/Verification">
               {nowPage === "verification" ? (
                 <Image src={verificationActive} alt="verification" />

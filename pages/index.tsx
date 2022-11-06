@@ -17,15 +17,15 @@ const Home: NextPage = () => {
 
   const connectWallet = () => {
     //TODO: https://nextjs.org/docs/messages/react-hydration-error
-    // if (typeof globalThis.window?.ethereum !== "undefined") {
-    //   window.ethereum
-    //     .request({ method: "eth_requestAccounts" })
-    //     .then((accounts) => {
-    //       setAccount(accounts[0]);
-    //     });
-    // } else {
-    //   console.log("MetaMask is NOT Installed!!");
-    // }
+    if (typeof globalThis.window?.ethereum !== "undefined") {
+      window.ethereum
+        .request({ method: "eth_requestAccounts" })
+        .then((accounts) => {
+          setAccount(accounts[0]);
+        });
+    } else {
+      console.log("MetaMask is NOT Installed!!");
+    }
     setAccount("0x..");
   };
   return (
