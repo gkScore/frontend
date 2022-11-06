@@ -1,3 +1,4 @@
+/* TODO: .bg以外のbackground-imageが文字や背景色も含んでいるのでコンポーネント化、画像化へと変更*/
 .bg {
   background-image: url("../public/images/backGroundImage.png");
   background-size: cover;

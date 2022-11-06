@@ -9,26 +9,10 @@ import { ethers } from "ethers";
 import contractAddr from "../../const/address.json";
 import abi from "../../const/abi.json";
 
-const Loading = () => {
-  // TODO　onClickで発行　ローディング画面
-  return (
-    <div className="w-full h-full">
-      <Image src={issueLoading} alt="loading" />
-    </div>
-  );
-};
-const Complete = () => {
-  // TODO　onClickで発行　モーダル画面
-  return (
-    <div>
-      <Image src={issueComplete} alt="complete" />
-    </div>
-  );
-};
-// TODO スタイルの整形
 const Issue = () => {
   const [address, setAddress] = useState<string>("");
   const [score, setScore] = useState<string>("");
+  //TODO isProgressの値に応じてプログレスバーを表示する
   const [isProgress, setProgress] = useState<boolean>(false);
   const [isCompleted, setCompleted] = useState<boolean>(false);
 
@@ -41,7 +25,7 @@ const Issue = () => {
   };
 
   const issueClick = async () => {
-    // TODO　onClickで発行　API
+    // TODO　onClickでする処理
     setProgress(true);
     // let scoreBytes = ethers.utils.toUtf8Bytes(score);
     // let hashedScore = ethers.utils.keccak256(scoreBytes);
