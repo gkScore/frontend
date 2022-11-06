@@ -43,26 +43,26 @@ const Issue = () => {
   const issueClick = async () => {
     // TODO　onClickで発行　API
     setProgress(true);
-    let scoreBytes = ethers.utils.toUtf8Bytes(score);
-    let hashedScore = ethers.utils.keccak256(scoreBytes);
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    await provider.send("eth_requestAccounts", []);
-    const signer = provider.getSigner();
-    const contract = new ethers.Contract(
-      contractAddr.zkscore,
-      abi.abi,
-      provider
-    );
-    const contractWithSigner = contract.connect(signer);
-    try {
-      const tx = await contractWithSigner.mint(address, hashedScore);
-      console.log(tx);
-      setCompleted(true);
-    } catch (e) {
-      alert("You cannot issue this address");
-      console.log(e);
-    }
-    setProgress(false);
+    // let scoreBytes = ethers.utils.toUtf8Bytes(score);
+    // let hashedScore = ethers.utils.keccak256(scoreBytes);
+    // const provider = new ethers.providers.Web3Provider(window.ethereum);
+    // await provider.send("eth_requestAccounts", []);
+    // const signer = provider.getSigner();
+    // const contract = new ethers.Contract(
+    //   contractAddr.zkscore,
+    //   abi.abi,
+    //   provider
+    // );
+    // const contractWithSigner = contract.connect(signer);
+    // try {
+    //   const tx = await contractWithSigner.mint(address, hashedScore);
+    //   console.log(tx);
+    //   setCompleted(true);
+    // } catch (e) {
+    //   alert("You cannot issue this address");
+    //   console.log(e);
+    // }
+    // setProgress(false);
   };
 
   const Loading = () => {
@@ -87,25 +87,38 @@ const Issue = () => {
 
   return (
     <div className={style.issue}>
-      <div className="pl-[600px] pt-[320px] rounded-[12px]">
-        <div className="flex flex-col w-[400px]">
-          <input type="text" placeholder="Enter address here" className="p-2" />
-          <input
-            type="text"
-            placeholder="Enter score here"
-            className="mt-[150px] p-2"
-          />
-          <span className="pt-[60px] pl-[40px]">
-            <Image
-              src={issueButton}
-              alt="button"
-              className="rounded-[20px] cursor-pointer"
-              onClick={issueClick}
+      {!isProgress ? (
+        <div className="pl-[600px] pt-[320px] rounded-[12px]">
+          <div className="flex flex-col w-[400px]">
+            <input
+              type="text"
+              placeholder="Enter address here"
+              className="p-2"
             />
-          </span>
+            <input
+              type="text"
+              placeholder="Enter score here"
+              className="mt-[150px] p-2"
+            />
+            <span className="pt-[60px] pl-[40px]">
+              <Image
+                src={issueButton}
+                alt="button"
+                className="rounded-[20px] cursor-pointer"
+                onClick={issueClick}
+              />
+            </span>
+          </div>
+          <LeftSideBar nowPage="issue" />
         </div>
-        <LeftSideBar nowPage="issue" />
-      </div>
+      ) : (
+        <div className="flex items-center justify-center pt-[100px] pl-[130px]">
+          <span onClick={() => setProgress(false)}>
+            <Complete />
+          </span>
+          <LeftSideBar nowPage="issue" />
+        </div>
+      )}
     </div>
   );
 };
