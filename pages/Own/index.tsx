@@ -2,6 +2,7 @@ import LeftSideBar from "../LeftSideBar";
 import Image from "next/image";
 import style from "../../styles/bgimage.module.css";
 
+// TODO コンポーネントを3つ作成して表示を整える（MyScore,ScoreValue,IdentityScore）
 const Own = () => {
   // TODO scoreを受け取る
   // TODO TotalScoreを受け取る

@@ -50,7 +50,7 @@ const Issue = () => {
   };
 
   const Loading = () => {
-    // TODO　onClickで発行　ローディング画面
+    // TODO ローディング画面 現状ローディング画面を実装していないのでissueCheck中に表示するように実装する
     return (
       <div>
         <Image src={issueLoading} alt="loading" />
@@ -58,7 +58,7 @@ const Issue = () => {
     );
   };
   const Complete = () => {
-    // TODO　onClickで発行　モーダル画面
+    // TODO　onClickで発行　モーダル画面　処理完了後に表示する。
     const setState = () => {
       setCompleted(false);
     };

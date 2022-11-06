@@ -6,10 +6,11 @@ import YesModal from "../../public/images/verYes.png";
 import NoModal from "../../public/images/verNo.png";
 import { useState } from "react";
 
+// TODO IssueCompを作成して整形する（Figmaを見てbg-colorで区切ると良い）
+// TODO 以下のモーダル切り替えの処理は綺麗ではない。かなり無理やりしているので修正すること。
 const Verification = () => {
   const [score, setScore] = useState<number>();
   const [show, setShow] = useState<boolean>(true);
-  // TODO スタイル調整
   const JudgeScore = () => {
     return (
       <div className="pl-[430px] pt-[120px] cursor-pointer">
