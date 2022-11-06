@@ -25,11 +25,6 @@ const Complete = () => {
     </div>
   );
 };
-const issueClick = () => {
-  // TODO　onClickで発行　API
-  return <Loading />;
-};
-
 // TODO スタイルの整形
 const Issue = () => {
   const [address, setAddress] = useState<string>("");

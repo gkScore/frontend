@@ -26,7 +26,6 @@ const Home: NextPage = () => {
     } else {
       console.log("MetaMask is NOT Installed!!");
     }
-    setAccount("0x..");
   };
   return (
     <div>
