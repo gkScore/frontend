@@ -70,39 +70,42 @@ const Issue = () => {
   };
 
   return (
-    <div className={style.issue}>
-      {!isProgress ? (
-        <div className="pl-[600px] pt-[320px] rounded-[12px]">
-          <div className="flex flex-col w-[400px]">
-            <input
-              type="text"
-              placeholder="Enter address here"
-              className="p-2"
-            />
-            <input
-              type="text"
-              placeholder="Enter score here"
-              className="mt-[150px] p-2"
-            />
-            <span className="pt-[60px] pl-[40px]">
-              <Image
-                src={issueButton}
-                alt="button"
-                className="rounded-[20px] cursor-pointer"
-                onClick={issueClick}
+    <div>
+      <div className={style.home}>
+        {!isProgress ? (
+          <div className="text-white h-screen w-screen flex flex-col justify-center items-center ">
+            <div className="flex flex-col w-[400px]">
+              <p className="text-4xl pb-7">Address</p>
+              <input
+                type="text"
+                placeholder="Enter address here"
+                className="p-2"
               />
+              <p className="text-4xl py-7">Score</p>
+              <input
+                type="text"
+                placeholder="Enter score here"
+                className="p-2"
+              />
+              <span className="pt-7 pl-[40px]">
+                <Image
+                  src={issueButton}
+                  alt="button"
+                  className="rounded-[20px] cursor-pointer"
+                  onClick={issueClick}
+                />
+              </span>
+            </div>
+          </div>
+        ) : (
+          <div className="flex items-center justify-center pt-[100px] pl-[130px]">
+            <span onClick={() => setProgress(false)}>
+              <Complete />
             </span>
           </div>
-          <LeftSideBar nowPage="issue" />
-        </div>
-      ) : (
-        <div className="flex items-center justify-center pt-[100px] pl-[130px]">
-          <span onClick={() => setProgress(false)}>
-            <Complete />
-          </span>
-          <LeftSideBar nowPage="issue" />
-        </div>
-      )}
+        )}
+      </div>
+      <LeftSideBar nowPage="issue" />
     </div>
   );
 };
