@@ -1,18 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LeftSideBar from "../LeftSideBar";
-import SbtIssue from "../SbtIssue";
 import bgTopImage from "../public/top/bg-top.svg";
 import style from "../../styles/bgimage.module.css";
 
-// TODO MyScoreコンポーネントを作成してbg-colorと文字をFigmaに合わせて適用する（現状bg-imageで無理やり実装している）
 const Top = () => {
-  // TODO scoreの値をDBから取得
+  const [account, setAccount] = useState("");
+  useEffect(() => {
+    window.ethereum
+      .request({ method: "eth_requestAccounts" })
+      .then((accounts) => {
+        setAccount(accounts[0]);
+      });
+    // TODO scoreの値をDBから取得 setScore(account.score)
+  }, []);
   const [score, setScore] = useState(45);
   return (
     // TODO スコアに応じて円状にパーセンテージバーを表示（Max100）
     <div className={style.home}>
-      <div className="text-white ">
-        <p className="text-8xl pt-[270px] pl-[720px]">{score}</p>
+      <div className="text-white h-screen w-screen flex flex-col justify-center items-center text-6xl ">
+        <p className="">My Score</p>
+        <p className="pt-10">{score}</p>
       </div>
       <LeftSideBar nowPage="home" />
     </div>

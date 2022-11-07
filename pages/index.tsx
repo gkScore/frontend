@@ -1,22 +1,16 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import { useState, useEffect } from "react";
-import detectEthereumProvider from "@metamask/detect-provider";
-import Web3 from "web3";
-import { ethers } from "ethers";
-import Link from "next/link";
-import topLogoImage from "../public/top.svg";
-import connectWalletImage from "../public/index/connectWalletButton.svg";
-import sub from "../public/index/Subtract.svg";
-import SbtIssue from "./SbtIssue";
+import { useState } from "react";
+import topLogoImage from "../public/1106/top.svg";
+import SbtIssue from "../pages/SbtIssue";
 import style from "../styles/bgimage.module.css";
+import Link from "next/link";
 
 const Home: NextPage = () => {
   const [account, setAccount] = useState<string>("");
 
   const connectWallet = () => {
-    //TODO: https://nextjs.org/docs/messages/react-hydration-error
     if (typeof globalThis.window?.ethereum !== "undefined") {
       window.ethereum
         .request({ method: "eth_requestAccounts" })
@@ -24,7 +18,7 @@ const Home: NextPage = () => {
           setAccount(accounts[0]);
         });
     } else {
-      console.log("MetaMask is NOT Installed!!");
+      console.error("MetaMask is NOT installed. Please install it.");
     }
   };
   return (
@@ -38,8 +32,7 @@ const Home: NextPage = () => {
       <main className={style.bg}>
         <div>
           {account !== "" ? (
-            // TODO accountの値を<SbtIssue />引数に入れる？→Reduxになるかも。。
-            <SbtIssue />
+            <SbtIssue account={account} />
           ) : (
             <div className="h-screen w-screen flex justify-center items-center">
               <Image

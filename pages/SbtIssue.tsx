@@ -5,13 +5,12 @@ import dialog from "../public/images/daialog.svg";
 import { useState } from "react";
 import styles from "../styles/bgimage.module.css";
 
-const SbtIssue = () => {
+const SbtIssue = ({ account }) => {
   const [progress, setProgress] = useState(false);
   const issueSbt = () => {
-    // TODO:コントラクトに発行の処理。
-    // TODO:発行処理中にプログレスバーを表示
-    // TODO:完了後にモーダルを表示する
-    // TODO:上3つの処理が終わったら下のsetTimeOutの処理削除
+    // TODO:コントラクトにSBT発行の処理。
+    // TODO:完了後にsetProgress[true]
+    // TODO:上の処理が終わったら下のsetTimeOutの処理削除
 
     setTimeout(() => setProgress(true), 1000);
   };

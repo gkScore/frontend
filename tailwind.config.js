@@ -7,7 +7,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        bg_col: "#110912",
+        bg_col: "#0E0C13",
+        bg_score: "#110912",
       },
     },
   },

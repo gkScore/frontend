@@ -8,13 +8,16 @@ import issue from "../public/sideButton/issue.svg";
 import issueActive from "../public/sideButton/issueActive.svg";
 import verification from "../public/sideButton/verification.svg";
 import verificationActive from "../public/sideButton/verificationActive.svg";
+import Logo from "../public/1106/logo.png";
+
 const LeftSideBar = ({ nowPage }) => {
   return (
     //TODO スタイル整形
-    <div>
-      <div className="fixed top-[100px] left-10 px-auto">
+    <div className="bg-bg_col z-0 w-1/5 absolute top-0 h-full">
+      <div className="flex justify-center items-center">
         <div className="flex flex-col items-start pt-[200px] ">
-          <div className="pl-3 w-50 rounded-lg cursor-pointer">
+          <Image src={Logo} alt="logo" />
+          <div className="pl-3 w-50 rounded-lg cursor-pointer pt-10">
             <Link href="/Top">
               {nowPage === "home" ? (
                 <Image src={homeActive} alt="home" />

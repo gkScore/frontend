@@ -7,11 +7,13 @@
   min-height: 100vh;
 }
 .home {
-  background-image: url("../public/images/homebgi.png");
+  background-image: url("../public/1106/defaultImage.png");
   min-width: 100vw;
   min-height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
+  z-index: -1;
 }
 .issue {
   background-image: url("../public/images/issueBgi.png");
