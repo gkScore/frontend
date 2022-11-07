@@ -15,7 +15,7 @@ const SbtIssue = ({ account }) => {
     setTimeout(() => setProgress(true), 1000);
   };
   return (
-    <div className={styles.bg}>
+    <div className="bg-default_image h-screen w-screen  bg-cover">
       <div className="h-screen w-screen flex justify-center items-center">
         {!progress ? (
           <Image

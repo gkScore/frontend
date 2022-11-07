@@ -29,7 +29,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={style.bg}>
+      <main className="bg-default_image h-screen w-screen  bg-cover">
         <div>
           {account !== "" ? (
             <SbtIssue account={account} />

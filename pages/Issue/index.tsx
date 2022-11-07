@@ -11,22 +11,24 @@ import abi from "../../const/abi.json";
 
 const Issue = () => {
   const [address, setAddress] = useState<string>("");
-  const [score, setScore] = useState<string>("");
-  //TODO isProgressの値に応じてプログレスバーを表示する
+  const [score, setScore] = useState<number>();
   const [isProgress, setProgress] = useState<boolean>(false);
   const [isCompleted, setCompleted] = useState<boolean>(false);
 
-  const handleChangeAddress = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAddress(e.target.value);
+  const handleChangeAddress = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    event?.preventDefault();
+    setAddress(event.target.value);
   };
 
-  const handleChangeScore = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setScore(e.target.value);
+  const handleChangeScore = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event?.preventDefault();
+    setScore(Number(event.target.value));
   };
 
   const issueClick = async () => {
-    // TODO　onClickでする処理
-    setProgress(true);
+    // TODO　onClickでissueの発行。
     // let scoreBytes = ethers.utils.toUtf8Bytes(score);
     // let hashedScore = ethers.utils.keccak256(scoreBytes);
     // const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -47,64 +49,58 @@ const Issue = () => {
     //   console.log(e);
     // }
     // setProgress(false);
-  };
-
-  const Loading = () => {
-    // TODO ローディング画面 現状ローディング画面を実装していないのでissueCheck中に表示するように実装する
-    return (
-      <div>
-        <Image src={issueLoading} alt="loading" />
-      </div>
-    );
+    setProgress(true);
   };
   const Complete = () => {
-    // TODO　onClickで発行　モーダル画面　処理完了後に表示する。
-    const setState = () => {
-      setCompleted(false);
-    };
     return (
       <div>
-        <Image src={issueComplete} onClick={setState} alt="complete" />
+        <Image
+          src={issueComplete}
+          onClick={() => setCompleted(false)}
+          alt="complete"
+        />
       </div>
     );
   };
 
   return (
-    <div>
-      <div className={style.home}>
-        {!isProgress ? (
-          <div className="text-white h-screen w-screen flex flex-col justify-center items-center ">
-            <div className="flex flex-col w-[400px]">
-              <p className="text-4xl pb-7">Address</p>
-              <input
-                type="text"
-                placeholder="Enter address here"
-                className="p-2"
+    <div className="w-screen bg-home bg-cover">
+      {!isProgress ? (
+        <div className="text-white h-screen w-screen flex flex-col justify-center items-center">
+          <div className="flex flex-col">
+            <p className="text-4xl pb-7">Address</p>
+            <input
+              type={"text"}
+              placeholder={"Enter address here"}
+              className="rounded-[10px] p-2 text-black w-[400px]"
+              value={address}
+              onChange={(event) => handleChangeAddress(event)}
+            />
+            <p className="text-4xl py-7">Score</p>
+            <input
+              type="text"
+              placeholder="Enter score here"
+              className="rounded-[10px] p-2  text-black  w-[400px]"
+              value={score}
+              onChange={(event) => handleChangeScore(event)}
+            />
+            <span className="pt-[100px]">
+              <Image
+                src={issueButton}
+                alt="button"
+                className="rounded-[20px] cursor-pointer pt-11"
+                onClick={issueClick}
               />
-              <p className="text-4xl py-7">Score</p>
-              <input
-                type="text"
-                placeholder="Enter score here"
-                className="p-2"
-              />
-              <span className="pt-7 pl-[40px]">
-                <Image
-                  src={issueButton}
-                  alt="button"
-                  className="rounded-[20px] cursor-pointer"
-                  onClick={issueClick}
-                />
-              </span>
-            </div>
-          </div>
-        ) : (
-          <div className="flex items-center justify-center pt-[100px] pl-[130px]">
-            <span onClick={() => setProgress(false)}>
-              <Complete />
             </span>
           </div>
-        )}
-      </div>
+        </div>
+      ) : (
+        <div className="h-screen w-screen flex flex-col justify-center items-center">
+          <span onClick={() => setProgress(false)}>
+            <Complete />
+          </span>
+        </div>
+      )}
       <LeftSideBar nowPage="issue" />
     </div>
   );

@@ -17,7 +17,7 @@ const Top = () => {
   return (
     // TODO スコアに応じて円状にパーセンテージバーを表示（Max100）
     <div>
-      <div className={style.home}>
+      <div className="bg-home bg-cover">
         <div className="text-white h-screen w-screen flex flex-col justify-center items-center text-6xl ">
           <p className="">My Score</p>
           <p className="pt-10">{score}</p>
