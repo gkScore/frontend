@@ -13,7 +13,7 @@ import Logo from "../public/1106/logo.png";
 const LeftSideBar = ({ nowPage }) => {
   return (
     //TODO スタイル整形
-    <div className="bg-bg_col z-0 w-1/5 absolute top-0 h-full">
+    <div className="bg-bg_col z-0 w-[300px] absolute top-0 h-full">
       <div className="flex justify-center items-center">
         <div className="flex flex-col items-start pt-[200px] ">
           <Image src={Logo} alt="logo" />
